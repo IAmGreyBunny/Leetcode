@@ -1,4 +1,4 @@
-# Last updated: 12/1/2025, 4:02:40 PM
+# Last updated: 12/1/2025, 4:03:51 PM
 1class Solution:
 2    def gcdOfStrings(self, str1: str, str2: str) -> str:
 3        import math
@@ -11,13 +11,11 @@
 10            return ""
 11        
 12        i=0
-13        j=0
-14        while(i<len(str1) and j<len(str2)):
-15            if str1[i] == str2[j]:
-16                divisor += str1[i]
-17            else:
-18                break
-19            i+=1
-20            j+=1
-21
-22        return divisor[:math.gcd(len(str1),len(str2))]
+13        while(i<len(str1) and i<len(str2)):
+14            if str1[i] == str2[i]:
+15                divisor += str1[i]
+16            else:
+17                break
+18            i+=1
+19
+20        return divisor[:math.gcd(len(str1),len(str2))]
