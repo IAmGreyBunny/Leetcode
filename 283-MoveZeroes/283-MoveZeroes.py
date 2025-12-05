@@ -1,4 +1,4 @@
-# Last updated: 12/5/2025, 5:32:57 PM
+# Last updated: 12/5/2025, 5:39:58 PM
 1class Solution:
 2    def moveZeroes(self, nums: List[int]) -> None:
 3        """
@@ -13,20 +13,22 @@
 12
 13        while i<len(nums) and j<len(nums):
 14            if nums[i]==0:
-15                if i<j:
-16                    j=i
-17                i+=1
-18            else:
-19                nums[i],nums[j] = nums[j],nums[i]
-20                while j<=i:
-21                    if nums[j]==0:
-22                        break
-23                    else:
-24                        j+=1
-25                i+=1
-26
-27        
+15                i+=1
+16            else:
+17                if i >= j:
+18                    nums[i],nums[j] = nums[j],nums[i]
+19                i+=1
+20
+21            # Find next zero
+22            while j<len(nums):
+23                if nums[j]==0:
+24                    break
+25                if j==len(nums)-1:
+26                    return nums
+27                j+=1
 28
 29        
 30
-31
+31        
+32
+33
