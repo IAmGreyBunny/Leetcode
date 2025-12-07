@@ -1,21 +1,28 @@
-# Last updated: 12/7/2025, 3:57:43 PM
+# Last updated: 12/7/2025, 4:10:33 PM
 1class Solution:
 2    def isSubsequence(self, s: str, t: str) -> bool:
-3
-4        start_search = 0
-5
-6        i = 0
-7
-8        for j in range(0,len(t)):
-9            
-10            if i == len(s):
-11                break
-12
-13            if t[j] == s[i]:
-14                print(f"Comparing {s[i]} with {t[j]}")
-15                i+=1
-16        
-17        if i == len(s):
-18            return True
-19        else:
-20            return False
+3        
+4        #edge case
+5        if len(s)==0:
+6            return True
+7        elif len(s) > len(t):
+8            return False
+9        elif len(t)==0:
+10            if len(s) == 0:
+11                return True
+12            else:
+13                return False
+14
+15        j=0
+16        for i in range(0,len(t)):
+17            if s[j] == t[i]:
+18                j+=1
+19            
+20            # Matched entire subseq
+21            if j == len(s):
+22                return True
+23
+24        
+25
+26        return False
+27
