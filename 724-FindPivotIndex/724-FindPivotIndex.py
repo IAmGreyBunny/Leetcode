@@ -1,4 +1,4 @@
-# Last updated: 12/8/2025, 8:54:47 PM
+# Last updated: 12/8/2025, 8:54:56 PM
 1class Solution:
 2    def pivotIndex(self, nums: List[int]) -> int:
 3        if len(nums)<1:
