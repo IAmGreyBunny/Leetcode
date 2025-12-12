@@ -1,4 +1,4 @@
-# Last updated: 12/12/2025, 3:05:54 PM
+# Last updated: 12/12/2025, 3:06:20 PM
 1class Solution:
 2    def findDifference(self, nums1: List[int], nums2: List[int]) -> List[List[int]]:
 3        # Declaring output 
@@ -40,25 +40,19 @@
 39        nums2 = set(nums2) # Remove duplicates
 40        answers[0] = list(nums1)
 41        list.sort(answers[0])
-42
-43        print(f"answers 0: {answers[0]}")
-44        
-45
-46        # loop through nums2
-47        for num in nums2:
-48            found = binarySearch(answers[0],num)
-49
-50            # Exists in nums 1
-51            if found != -1:
-52                print(f"{answers[0][found]} Found")
-53                answers[0].pop(found)
-54            else:
-55                answers[1].append(num)
+42        
+43
+44        # loop through nums2
+45        for num in nums2:
+46            found = binarySearch(answers[0],num)
+47
+48            # Exists in nums 1
+49            if found != -1:
+50                answers[0].pop(found)
+51            else:
+52                answers[1].append(num)
+53        
+54        return answers
+55
 56        
-57        print("Result")
-58        print(f"{answers[0]}")
-59        print(f"{answers[1]}")
-60        return answers
-61
-62        
-63
+57
