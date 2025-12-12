@@ -1,34 +1,24 @@
-# Last updated: 12/12/2025, 12:02:09 AM
+# Last updated: 12/12/2025, 10:22:22 PM
 1class Solution:
 2    def productExceptSelf(self, nums: List[int]) -> List[int]:
 3        if len(nums) < 1:
 4            return []
-5        
-6        product = 1
-7        zero_counter = 0
-8        
-9        for num in nums:
-10            if num == 0:
-11                zero_counter+=1
-12            else:
-13                product*=num
-14            if zero_counter==2:
-15                return [0 for x in range(0,len(nums))]
-16
-17        answer=[]
+5        if len(nums) == 1:
+6            return [0]
+7
+8        prefix = [1]
+9        postfix = [1]
+10
+11        for i in range(1,len(nums)):
+12            prefix.append(prefix[i-1]*nums[i-1])
+13            postfix.append(postfix[i-1]*nums[len(nums)-i])
+14
+15        answers = []
+16        for i in range(0,len(prefix)):
+17            answers.append(prefix[i] * postfix[len(postfix)-1-i])
 18
-19        if zero_counter==1:
-20            for i in range(0,len(nums)):
-21                if nums[i] != 0:
-22                    answer.append(0)
-23                else:
-24                    answer.append(product)
-25            return answer
-26        else:
-27            for i in range(0,len(nums)):
-28                if nums[i]==0:
-29                    answer.append(product)
-30                else:
-31                    answer.append(product//nums[i])
-32            return answer
-33
+19        return answers
+20
+21
+22
+23
