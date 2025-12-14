@@ -1,4 +1,4 @@
-# Last updated: 12/14/2025, 10:45:00 AM
+# Last updated: 12/14/2025, 10:45:41 AM
 1class RecentCounter:
 2
 3    def __init__(self):
@@ -16,9 +16,8 @@
 15                break
 16    
 17        return len(recent_reqs)-self.last_req_index
-18        
+18
 19
-20
-21# Your RecentCounter object will be instantiated and called as such:
-22# obj = RecentCounter()
-23# param_1 = obj.ping(t)
+20# Your RecentCounter object will be instantiated and called as such:
+21# obj = RecentCounter()
+22# param_1 = obj.ping(t)
