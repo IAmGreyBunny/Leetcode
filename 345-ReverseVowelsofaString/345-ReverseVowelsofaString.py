@@ -1,4 +1,4 @@
-# Last updated: 10/6/2026, 11:49:00 PM
+# Last updated: 10/6/2026, 11:49:50 PM
 1class Solution:
 2    def reverseVowels(self, s):
 3        """
@@ -15,12 +15,10 @@
 14            if s[i] in vowels:
 15                while j>i:
 16                    if s[j] in vowels:
-17                        temp = s[i]
-18                        s[i] = s[j]
-19                        s[j] = temp
-20                        j-=1
-21                        break
-22                    j-=1
-23            i+=1
-24
-25        return "".join(s)
+17                        s[i], s[j] = s[j], s[i]
+18                        j-=1
+19                        break
+20                    j-=1
+21            i+=1
+22
+23        return "".join(s)
