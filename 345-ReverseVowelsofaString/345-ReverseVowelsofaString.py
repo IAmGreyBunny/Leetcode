@@ -1,25 +1,26 @@
-# Last updated: 12/3/2025, 7:42:05 PM
+# Last updated: 10/6/2026, 11:48:54 PM
 1class Solution:
-2    def reverseVowels(self, s: str) -> str:
-3        vowels = ['a','e','i','o','u','A','E','I','O','U']
-4        i = 0
-5        j = len(s)-1
-6
-7        if len(s) <= 1:
-8            return s
+2    def reverseVowels(self, s):
+3        """
+4        :type s: str
+5        :rtype: str
+6        """
+7        vowels = "AEIOUaeiou"
+8        s = list(s)
 9
-10        s = list(s)
-11
-12        while(i<j):
-13            if s[i] in vowels:
-14                if s[j] in vowels:
-15                    s[i],s[j] = s[j],s[i]
-16                    i+=1
-17                    j-=1
-18                else:
-19                    j-=1
-20            else:
-21                i+=1
-22        
-23        s = ''.join(s)
-24        return s
+10        i=0
+11        j=len(s)-1
+12
+13        while i<len(s) and i<j:
+14            if s[i] in vowels:
+15                while j>i:
+16                    if s[j] in vowels:
+17                        temp = s[i]
+18                        s[i] = s[j]
+19                        s[j] = temp
+20                        j-=1
+21                        break
+22                    j-=1
+23            i+=1
+24
+25        return "".join(s)
