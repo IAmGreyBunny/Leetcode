@@ -1,16 +1,34 @@
-# Last updated: 10/8/2026, 12:41:21 AM
+# Last updated: 10/8/2026, 1:59:20 AM
 1class Solution:
 2    def moveZeroes(self, nums: list[int]) -> None:
 3        """
 4        Do not return anything, modify nums in-place instead.
 5        """
-6        for i in range(0,len(nums)):
-7            if nums[i] != 0:
-8                continue
-9            else:
-10                for j in range(min(len(nums),i+1),len(nums)):
-11                    if nums[j]!=0:
-12                        nums[i],nums[j] = nums[j],nums[i]
-13                        break
-14            
-15        
+6        i = 0 
+7        j = 0 #points to the first 0 from the left
+8
+9        if len(nums)<=1:
+10            return nums
+11        
+12
+13        while i<len(nums) and j<len(nums):
+14            if nums[i]==0:
+15                if i<j:
+16                    j=i
+17                i+=1
+18            else:
+19                nums[i],nums[j] = nums[j],nums[i]
+20                while j<=i:
+21                    if nums[j]==0:
+22                        break
+23                    else:
+24                        j+=1
+25                i+=1
+26
+27            
+28                
+29
+30                
+31
+32            
+33        
