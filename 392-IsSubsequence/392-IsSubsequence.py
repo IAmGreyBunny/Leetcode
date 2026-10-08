@@ -1,28 +1,25 @@
-# Last updated: 12/7/2025, 4:10:33 PM
+# Last updated: 10/9/2026, 12:01:21 AM
 1class Solution:
 2    def isSubsequence(self, s: str, t: str) -> bool:
-3        
-4        #edge case
-5        if len(s)==0:
-6            return True
-7        elif len(s) > len(t):
-8            return False
-9        elif len(t)==0:
-10            if len(s) == 0:
-11                return True
-12            else:
-13                return False
-14
-15        j=0
-16        for i in range(0,len(t)):
-17            if s[j] == t[i]:
-18                j+=1
-19            
-20            # Matched entire subseq
+3        i=0
+4        j=0
+5
+6        if len(s) == 0:
+7            return True
+8        
+9        if len(s)==1:
+10            return True if s in t else False
+11
+12        if len(s)>len(t):
+13            return False
+14        elif len(s)==len(t) and s != t:
+15            return False
+16
+17        for i in range(0,len(t)):
+18            if t[i] == s[j]:
+19                j+=1
+20
 21            if j == len(s):
 22                return True
-23
-24        
-25
-26        return False
-27
+23            
+24        return False
