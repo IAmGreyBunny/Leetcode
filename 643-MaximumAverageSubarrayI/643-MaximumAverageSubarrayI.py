@@ -1,4 +1,4 @@
-# Last updated: 10/9/2026, 11:16:28 PM
+# Last updated: 10/9/2026, 11:16:37 PM
 1class Solution:
 2    def findMaxAverage(self, nums: list[int], k: int) -> float:
 3        if k==len(nums):
@@ -13,6 +13,4 @@
 12            if current_sum > current_max:
 13                current_max = current_sum
 14
-15            
-16
-17        return current_max/k
+15        return current_max/k
